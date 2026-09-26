@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Information — تسجيل الدخول</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body class="auth-page">
+
+    <main class="auth-container">
+
+        <section class="login-card">
+
+            <div class="brand-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 3v18"/>
+                    <path d="M8 7h8"/>
+                    <path d="M8 17h8"/>
+                </svg>
+            </div>
+
+            <div class="login-header">
+                <span class="eyebrow">PRIVATE SPACE</span>
+
+                <h1>Information</h1>
+
+                <p>
+                    مساحتك الشخصية لإدارة معلوماتك وملفاتك.
+                </p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+
+                <div class="form-group">
+
+                    <label for="username">
+                        اسم المستخدم
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="8" r="4"/>
+                            <path d="M4 21c.7-4 3.3-6 8-6s7.3 2 8 6"/>
+                        </svg>
+
+                        <input
+                            id="username"
+                            type="text"
+                            placeholder="اسم المستخدم"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="password">
+                        كلمة المرور
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <svg viewBox="0 0 24 24">
+                            <rect x="5" y="10" width="14" height="10" rx="2"/>
+                            <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+                        </svg>
+
+                        <input
+                            id="password"
+                            type="password"
+                            placeholder="كلمة المرور"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="password-toggle"
+                            aria-label="إظهار كلمة المرور"
+                        >
+                            <svg viewBox="0 0 24 24">
+                                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/>
+                                <circle cx="12" cy="12" r="2.5"/>
+                            </svg>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <button class="login-button" type="submit">
+
+                    <span>دخول</span>
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14"/>
+                        <path d="m13 6 6 6-6 6"/>
+                    </svg>
+
+                </button>
+
+                <div id="loginMessage" class="login-message"></div>
+
+            </form>
+
+            <div class="login-footer">
+
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 3 5 6v5c0 5 3 8 7 10 4-2 7-5 7-10V6z"/>
+                    <path d="m9 12 2 2 4-4"/>
+                </svg>
+
+                <span>
+                    بياناتك محفوظة محلياً على هذا الجهاز
+                </span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script type="module" src="js/auth.js"></script>
+
+</body>
+</html>

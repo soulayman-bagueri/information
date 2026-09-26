@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Information — Dashboard</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-top">
+
+            <div class="brand">
+
+                <div class="brand-icon small">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 3v18"/>
+                        <path d="M8 7h8"/>
+                        <path d="M8 17h8"/>
+                    </svg>
+
+                </div>
+
+                <div>
+                    <strong>Information</strong>
+                    <small>PRIVATE SPACE</small>
+                </div>
+
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <button class="nav-item active" data-page="home">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="m3 11 9-8 9 8"/>
+                        <path d="M5 10v10h14V10"/>
+                    </svg>
+
+                    <span>الرئيسية</span>
+
+                </button>
+
+                <button class="nav-item" data-page="notes">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 4h14v16H5z"/>
+                        <path d="M8 8h8"/>
+                        <path d="M8 12h8"/>
+                        <path d="M8 16h5"/>
+                    </svg>
+
+                    <span>المعلومات</span>
+
+                </button>
+
+                <button class="nav-item" data-page="folders">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    </svg>
+
+                    <span>المجلدات</span>
+
+                </button>
+
+                <button class="nav-item" data-page="images">
+
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="4" width="18" height="16" rx="2"/>
+                        <circle cx="8" cy="9" r="1.5"/>
+                        <path d="m4 17 5-5 3 3 2-2 6 5"/>
+                    </svg>
+
+                    <span>الصور</span>
+
+                </button>
+
+                <button class="nav-item" data-page="favorites">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="m12 4 2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z"/>
+                    </svg>
+
+                    <span>المفضلة</span>
+
+                </button>
+
+                <button class="nav-item" data-page="trash">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 7h16"/>
+                        <path d="M9 7V4h6v3"/>
+                        <path d="m6 7 1 14h10l1-14"/>
+                        <path d="M10 11v6"/>
+                        <path d="M14 11v6"/>
+                    </svg>
+
+                    <span>سلة المهملات</span>
+
+                </button>
+
+                <button class="nav-item" data-page="history">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 12a9 9 0 1 0 3-6.7"/>
+                        <path d="M3 4v6h6"/>
+                        <path d="M12 7v5l3 2"/>
+                    </svg>
+
+                    <span>السجل</span>
+
+                </button>
+
+            </nav>
+
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <button id="themeButton" class="nav-item">
+
+                <svg viewBox="0 0 24 24">
+                    <path d="M20 15.5A8.5 8.5 0 1 1 8.5 4 7 7 0 0 0 20 15.5z"/>
+                </svg>
+
+                <span>المظهر</span>
+
+            </button>
+
+            <button id="logoutButton" class="nav-item logout">
+
+                <svg viewBox="0 0 24 24">
+                    <path d="M10 17l5-5-5-5"/>
+                    <path d="M15 12H3"/>
+                    <path d="M21 19V5a2 2 0 0 0-2-2h-5"/>
+                </svg>
+
+                <span>تسجيل الخروج</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+
+                <span class="page-eyebrow">
+                    PRIVATE SPACE
+                </span>
+
+                <h1 id="pageTitle">
+                    الرئيسية
+                </h1>
+
+            </div>
+
+            <div class="top-actions">
+
+                <div class="search-box">
+
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="7"/>
+                        <path d="m20 20-4-4"/>
+                    </svg>
+
+                    <input
+                        id="searchInput"
+                        type="search"
+                        placeholder="ابحث..."
+                    >
+
+                </div>
+
+                <button
+                    id="newFolderButton"
+                    class="icon-button"
+                    title="مجلد جديد"
+                >
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <path d="M12 10v6"/>
+                        <path d="M9 13h6"/>
+                    </svg>
+
+                </button>
+
+                <button
+                    id="newNoteButton"
+                    class="primary-button"
+                >
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 5v14"/>
+                        <path d="M5 12h14"/>
+                    </svg>
+
+                    <span>معلومة جديدة</span>
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- HOME -->
+
+        <section id="homePage" class="page">
+
+            <div class="welcome-card">
+
+                <div>
+
+                    <span class="badge">
+                        PRIVATE
+                    </span>
+
+                    <h2>
+                      اهلا بك يا اخي
+                    </h2>
+
+                    <p>
+                       كل المعلومات و الصور هنا
+                    </p>
+
+                </div>
+
+                <div class="welcome-date" id="currentDate"></div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        </svg>
+                    </div>
+
+                    <div>
+                        <strong id="foldersCount">0</strong>
+                        <span>المجلدات</span>
+                    </div>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 4h14v16H5z"/>
+                            <path d="M8 8h8"/>
+                            <path d="M8 12h8"/>
+                            <path d="M8 16h5"/>
+                        </svg>
+                    </div>
+
+                    <div>
+                        <strong id="notesCount">0</strong>
+                        <span>المعلومات</span>
+                    </div>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="16" rx="2"/>
+                            <circle cx="8" cy="9" r="1.5"/>
+                            <path d="m4 17 5-5 3 3 2-2 6 5"/>
+                        </svg>
+                    </div>
+
+                    <div>
+                        <strong id="imagesCount">0</strong>
+                        <span>الصور</span>
+                    </div>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-icon yellow">
+                        <svg viewBox="0 0 24 24">
+                            <path d="m12 4 2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z"/>
+                        </svg>
+                    </div>
+
+                    <div>
+                        <strong id="favoritesCount">0</strong>
+                        <span>المفضلة</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>آخر المعلومات</h2>
+                    <p>آخر الأشياء التي أضفتها</p>
+                </div>
+
+                <button
+                    class="text-button"
+                    data-page="notes"
+                >
+                    عرض الكل
+                </button>
+
+            </div>
+
+            <div id="recentNotes" class="content-grid"></div>
+
+        </section>
+
+
+        <!-- NOTES -->
+
+        <section id="notesPage" class="page hidden">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>المعلومات</h2>
+                    <p>جميع المعلومات والملاحظات الخاصة بك</p>
+                </div>
+
+                <button id="notesAddButton" class="primary-button">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 5v14"/>
+                        <path d="M5 12h14"/>
+                    </svg>
+
+                    إضافة
+
+                </button>
+
+            </div>
+
+            <div id="notesGrid" class="content-grid"></div>
+
+        </section>
+
+
+        <!-- FOLDERS -->
+
+        <section id="foldersPage" class="page hidden">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>المجلدات</h2>
+                    <p>نظم معلوماتك داخل مجلدات</p>
+                </div>
+
+                <button id="foldersAddButton" class="primary-button">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 5v14"/>
+                        <path d="M5 12h14"/>
+                    </svg>
+
+                    مجلد جديد
+
+                </button>
+
+            </div>
+
+            <div id="foldersGrid" class="folder-grid"></div>
+
+        </section>
+
+
+        <!-- IMAGES -->
+
+        <section id="imagesPage" class="page hidden">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>الصور</h2>
+                    <p>صورك محفوظة داخل المتصفح</p>
+                </div>
+
+                <label class="upload-button">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 16V4"/>
+                        <path d="m7 9 5-5 5 5"/>
+                        <path d="M5 20h14"/>
+                    </svg>
+
+                    رفع صور
+
+                    <input
+                        id="imageInput"
+                        type="file"
+                        accept="image/*"
+                        multiple
+                        hidden
+                    >
+
+                </label>
+
+            </div>
+
+            <div id="imagesGrid" class="image-grid"></div>
+
+        </section>
+
+
+        <!-- FAVORITES -->
+
+        <section id="favoritesPage" class="page hidden">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>المفضلة</h2>
+                    <p>كل ما قمت بوضعه في المفضلة</p>
+                </div>
+
+            </div>
+
+            <div id="favoritesGrid" class="content-grid"></div>
+
+        </section>
+
+
+        <!-- TRASH -->
+
+        <section id="trashPage" class="page hidden">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>سلة المهملات</h2>
+                    <p>يمكنك استرجاع العناصر أو حذفها نهائياً</p>
+                </div>
+
+                <button
+                    id="emptyTrashButton"
+                    class="danger-button"
+                >
+                    إفراغ السلة
+                </button>
+
+            </div>
+
+            <div id="trashGrid" class="content-grid"></div>
+
+        </section>
+
+
+        <!-- HISTORY -->
+
+        <section id="historyPage" class="page hidden">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>السجل</h2>
+                    <p>آخر العمليات التي قمت بها</p>
+                </div>
+
+            </div>
+
+            <div id="historyList" class="history-list"></div>
+
+        </section>
+
+
+        <!-- SEARCH -->
+
+        <section id="searchPage" class="page hidden">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>نتائج البحث</h2>
+                    <p id="searchResultsText"></p>
+                </div>
+
+            </div>
+
+            <div id="searchGrid" class="content-grid"></div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- NOTE MODAL -->
+
+<div id="noteModal" class="modal hidden">
+
+    <div class="modal-card">
+
+        <button
+            class="modal-close"
+            data-close="noteModal"
+        >
+            ×
+        </button>
+
+        <h2 id="noteModalTitle">
+            معلومة جديدة
+        </h2>
+
+        <form id="noteForm" class="modal-form">
+
+            <div class="form-group">
+
+                <label for="noteTitle">
+                    العنوان
+                </label>
+
+                <input
+                    id="noteTitle"
+                    maxlength="150"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="noteContent">
+                    المحتوى
+                </label>
+
+                <textarea
+                    id="noteContent"
+                    required
+                ></textarea>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="noteTags">
+                    الوسوم
+                </label>
+
+                <input
+                    id="noteTags"
+                    placeholder="عمل، مهم، أفكار"
+                >
+
+            </div>
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    data-close="noteModal"
+                >
+                    إلغاء
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    حفظ المعلومة
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- FOLDER MODAL -->
+
+<div id="folderModal" class="modal hidden">
+
+    <div class="modal-card">
+
+        <button
+            class="modal-close"
+            data-close="folderModal"
+        >
+            ×
+        </button>
+
+        <h2>إنشاء مجلد</h2>
+
+        <form id="folderForm" class="modal-form">
+
+            <div class="form-group">
+
+                <label for="folderName">
+                    اسم المجلد
+                </label>
+
+                <input
+                    id="folderName"
+                    maxlength="80"
+                    required
+                >
+
+            </div>
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    data-close="folderModal"
+                >
+                    إلغاء
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    إنشاء
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- IMAGE VIEWER -->
+
+<div id="imageModal" class="modal hidden">
+
+    <div class="image-viewer">
+
+        <button
+            class="modal-close"
+            data-close="imageModal"
+        >
+            ×
+        </button>
+
+        <img id="viewerImage" alt="صورة">
+
+        <div id="viewerName" class="viewer-name"></div>
+
+    </div>
+
+</div>
+
+
+<div id="toastContainer" class="toast-container"></div>
+
+
+<script type="module" src="js/dashboard.js"></script>
+
+</body>
+</html>
